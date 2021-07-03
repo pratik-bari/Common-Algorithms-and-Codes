@@ -20,6 +20,7 @@ struct Node * addNewNode(int val)
 
 }
 
+// Left - Right - Root
 void printPostOrder(struct Node * node)
 {
 	if(node == NULL)
@@ -32,6 +33,7 @@ void printPostOrder(struct Node * node)
 	printf("Data->%d\n", node->data);
 }
 
+// Root - Left - Right
 void printPreOrder(struct Node * node)
 {
 	if(node == NULL)
@@ -44,6 +46,7 @@ void printPreOrder(struct Node * node)
 	printPreOrder(node->right);
 }
 
+// Left - Root - Right
 void printInOrder(struct Node * node)
 {
 	if(node == NULL)
