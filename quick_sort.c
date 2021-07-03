@@ -12,29 +12,29 @@ void swap(int *a, int *b)
 
 int partition(int * arr, int left, int right)
 {
-	int pivot = right;
+	int pivot = right;							// Take the last index as the pivot
 
-	int i = left, j = right - 1;
+	int i = left, j = right - 1;						// Create iterators which point to the left index and the last index excluding the pivot 
 
-	while(i <= j)
+	while(i <= j)								// Iterate until the left iterator is equal to or less than right iterator
 	{
-		if(arr[i] <= arr[pivot])
-		{
+		if(arr[i] <= arr[pivot])					// Check if the elements at the left of the pivot are smaller or equal to the pivot element. If not mark the position
+		{								// of the iterator
 			i++;
 			continue;	
 		}
 
-		if(arr[j] > arr[pivot])
-		{
+		if(arr[j] > arr[pivot])						// Check if the elements at the right of the pivot are larger than the pivot element. If not mark the position of the 
+		{								// iterator
 			j--;
 			continue;
 		}
 	
-		swap(&arr[i], &arr[j]);
+		swap(&arr[i], &arr[j]);						// Swap the contents at the left and the right iterator
 	}
 
-	swap(&arr[pivot], &arr[i]);
-
+	swap(&arr[pivot], &arr[i]);						// Swap the contents of the 'i' index and the pivot. The 'i'th position is the exact position where the pivot element 
+										// should be in the sorted list. Return the 'i'th index.
 	return i;
 }
 
@@ -43,10 +43,10 @@ void sort(int *arr, int left, int right)
 {
 	if(left < right)
 	{
-		int pivot = partition(arr, left, right);
+		int pivot = partition(arr, left, right);			// Find the pivot index. This value at this position is as should be in the sorted array
 
-		sort(arr, left, pivot - 1);
-		sort(arr, pivot + 1, right);
+		sort(arr, left, pivot - 1);					// Call for quick sort in the left partition
+		sort(arr, pivot + 1, right);					// Call for quick sort in the right partition
 	}
 }
 
