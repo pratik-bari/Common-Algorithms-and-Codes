@@ -18,6 +18,7 @@ struct Node * addNewNode(int val)
 	newNode->left = NULL;
 	newNode->right = NULL;
 
+	return newNode;
 }
 
 // Left - Right - Root
